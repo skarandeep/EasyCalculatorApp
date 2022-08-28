@@ -3,9 +3,14 @@ package com.example.easycalculatorapp;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
+
+import org.mozilla.javascript.Context;
+import org.mozilla.javascript.Scriptable;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -127,6 +132,84 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        btn_dot.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                data = inputText.getText().toString();
+                inputText.setText(data + ".");
+            }
+        });
 
+        btn_ac.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                data = inputText.getText().toString();
+                inputText.setText("");
+                outputText.setText("");
+            }
+        });
+
+        btn_plus.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                data = inputText.getText().toString();
+                inputText.setText(data + "+");
+            }
+        });
+
+        btn_minus.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                data = inputText.getText().toString();
+                inputText.setText(data + "-");
+            }
+        });
+
+        btn_module.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                data = inputText.getText().toString();
+                inputText.setText(data + "%");
+            }
+        });
+
+        btn_multiplication.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                data = inputText.getText().toString();
+                inputText.setText(data + "*");
+            }
+        });
+
+        btn_divide.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                data = inputText.getText().toString();
+                inputText.setText(data + "/");
+            }
+        });
+
+        btn_equal.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                data = inputText.getText().toString();
+
+                //testing
+                // Toast.makeText(MainActivity.this, "" + data, Toast.LENGTH_SHORT).show();
+                // Log.e("@@@@","onClick: "+data);
+
+                // data = data.replaceAll("%")
+
+                Context rhino = Context.enter();
+                rhino.setOptimizationLevel(-1);
+                String finalResult = "";
+                Scriptable scriptable = rhino.initStandardObjects();
+                finalResult = rhino.evaluateString(scriptable, data, "Javascript", 1, null).toString();
+
+                outputText.setText(finalResult);
+
+
+            }
+        });
     }
 }
