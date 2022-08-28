@@ -3,6 +3,7 @@ package com.example.easycalculatorapp;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -13,6 +14,8 @@ public class MainActivity extends AppCompatActivity {
     ImageView btn_dot, btn_equal, btn_ac, btn_module, btn_plus, btn_minus, btn_multiplication, btn_divide;
 
     TextView inputText, outputText;
+
+    String data;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,6 +45,88 @@ public class MainActivity extends AppCompatActivity {
 
         inputText = findViewById(R.id.inputText);
         outputText = findViewById(R.id.outputText);
+
+        //setting click events aka Listeners
+        btn_0.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                data = inputText.getText().toString();
+                inputText.setText(data + "0");
+            }
+        });
+
+        btn_1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                data = inputText.getText().toString();
+                inputText.setText(data + "1");
+            }
+        });
+
+        btn_2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                data = inputText.getText().toString();
+                inputText.setText(data + "2");
+            }
+        });
+
+        btn_3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                data = inputText.getText().toString();
+                inputText.setText(data + "3");
+            }
+        });
+
+        btn_4.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                data = inputText.getText().toString();
+                inputText.setText(data + "4");
+            }
+        });
+
+        btn_5.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                data = inputText.getText().toString();
+                inputText.setText(data + "5");
+            }
+        });
+
+        btn_6.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                data = inputText.getText().toString();
+                inputText.setText(data + "6");
+            }
+        });
+
+        btn_7.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                data = inputText.getText().toString();
+                inputText.setText(data + "7");
+            }
+        });
+
+        btn_8.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                data = inputText.getText().toString();
+                inputText.setText(data + "8");
+            }
+        });
+
+        btn_9.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                data = inputText.getText().toString();
+                inputText.setText(data + "9");
+            }
+        });
+
 
     }
 }
